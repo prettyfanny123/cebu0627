@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>鹿鹿fun學 宿霧遊學 家長費用明細表</title>
+<style>
+  @media print { body { padding: 0; } }
+  body {
+    font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+    max-width: 920px; margin: 20px auto; padding: 20px;
+    background: #f5f5f5; color: #333;
+  }
+  .container { background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.1); }
+  h1 {
+    text-align: center; color: #0070C0; font-size: 26px; margin: 0 0 8px;
+    border-bottom: 3px solid #0070C0; padding-bottom: 15px;
+  }
+  .subtitle { text-align: center; color: #666; font-size: 14px; margin-bottom: 25px; }
+
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 30px; margin-bottom: 25px; }
+  .info-item { display: flex; }
+  .info-label { font-weight: bold; min-width: 80px; color: #555; }
+  .info-value { flex: 1; }
+
+  .flight-section {
+    background: #e8f4fd; border: 1px solid #b8dff5; border-radius: 8px;
+    padding: 15px 20px; margin-bottom: 25px;
+  }
+  .flight-section h3 { margin: 0 0 10px; color: #0070C0; font-size: 16px; }
+  .flight-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .flight-table th { background: #0070C0; color: #fff; padding: 8px 12px; text-align: left; }
+  .flight-table td { padding: 8px 12px; border-bottom: 1px solid #d0e8f5; }
+  .flight-table tr:last-child td { border-bottom: none; }
+
+  table.fee { width: 100%; border-collapse: collapse; margin-bottom: 25px; }
+  table.fee th {
+    background: #0070C0; color: #fff; padding: 12px; text-align: center;
+    font-size: 15px;
+  }
+  table.fee td { padding: 10px 12px; border: 1px solid #ddd; font-size: 14px; }
+  table.fee .item { font-weight: bold; white-space: nowrap; }
+  table.fee .amt { text-align: right; white-space: nowrap; }
+  table.fee .desc { color: #555; }
+  table.fee .total-row td { font-weight: bold; background: #fff3cd; font-size: 15px; }
+  table.fee .subtotal-row td { font-weight: bold; background: #e8f4fd; font-size: 14px; }
+  table.fee .discount-row td { color: #c00; }
+  table.fee .discount { color: #c00; font-weight: bold; }
+
+  .section { margin-bottom: 20px; }
+  .section h3 { color: #0070C0; font-size: 16px; margin: 0 0 8px; border-left: 4px solid #0070C0; padding-left: 10px; }
+
+  .bank-info {
+    background: #fff3cd; border: 1px solid #ffe69c; border-radius: 8px;
+    padding: 15px 20px; margin-bottom: 25px;
+  }
+  .bank-info h3 { margin: 0 0 8px; color: #856404; font-size: 15px; }
+  .bank-info p { margin: 4px 0; font-size: 14px; }
+
+  .footer { text-align: center; font-size: 12px; color: #999; margin-top: 30px; border-top: 1px solid #eee; padding-top: 15px; }
+
+  .blank-field { display: inline-block; min-width: 120px; border-bottom: 1px solid #999; margin: 0 4px; }
+  .sign-row { display: flex; justify-content: space-between; margin-top: 30px; font-size: 14px; }
+  .sign-row span { display: inline-block; min-width: 150px; border-bottom: 1px solid #333; }
+
+  .room-detail { font-size: 13px; color: #555; line-height: 1.7; }
+  .room-detail b { color: #0070C0; }
+  .room-label { font-weight: bold; color: #0070C0; }
+  .room-note { font-size: 12px; color: #888; }
+
+  .itinerary-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .itinerary-table th { background: #e8f4fd; font-weight: bold; border: 1px solid #999; padding: 6px 8px; text-align: center; }
+  .itinerary-table td { border: 1px solid #999; padding: 6px 8px; vertical-align: top; }
+  .itinerary-table .date-cell { text-align: center; white-space: nowrap; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>鹿鹿fun學 宿霧遊學<br>言穆  費用明細表</h1>
+  <div class="subtitle">學生姓名：<span style="font-weight:bold;color:#0070C0;font-size:16px;">言穆</span> &nbsp;&nbsp; 家長姓名：<span class="blank-field"></span> &nbsp;&nbsp; 填表日期：<span class="blank-field"></span></div>
+
+  <div class="info-grid">
+    <div class="info-item"><span class="info-label">全 行 程</span><span class="info-value">6/27（六）~ 7/11（六）共 15 天</span></div>
+    <div class="info-item"><span class="info-label">行　程　點</span><span class="info-value">馬尼拉 → 薄荷島 → 宿霧</span></div>
+    <div class="info-item"><span class="info-label">語言學習</span><span class="info-value">7/1（三）~ 7/11（六）宿霧 88th Avenue</span></div>
+    <div class="info-item"><span class="info-label">課程安排</span><span class="info-value">四堂一對一、2堂小團體課、每日團體夜間活動</span></div>
+  </div>
+
+  <div class="flight-section">
+    <h3>&#9992; 航班資訊</h3>
+    <table class="flight-table">
+      <tr><th>日期</th><th>行程</th><th>航班</th><th>時間</th></tr>
+      <tr>
+        <td>6/27（六）</td>
+        <td>高雄（KHH）→ 馬尼拉（MNL）</td>
+        <td>菲律賓亞航 Z2 133</td>
+        <td>18:25 → 20:15</td>
+      </tr>
+      <tr>
+        <td>6/29（一）</td>
+        <td>馬尼拉（MNL）→ 塔比拉蘭／薄荷島（TAG）</td>
+        <td>菲律賓亞航 Z2 358</td>
+        <td>14:10 → 15:30</td>
+      </tr>
+      <tr>
+        <td>7/11（六）</td>
+        <td>宿霧（CEB）→ 桃園（TPE）</td>
+        <td>長榮航空 BR 282</td>
+        <td>12:15 → 15:10</td>
+      </tr>
+    </table>
+  </div>
+
+  <table class="fee">
+    <tr><th style="width:22%;">費用項目</th><th style="width:48%;">說明</th><th style="width:15%;">金額（NT$）</th><th style="width:15%;">備註</th></tr>
+    <tr>
+      <td class="item">學費／教材費<br>住宿費／三餐</td>
+      <td class="desc">宿霧語言學習期間（7/1 ~ 7/11）<br>含學費、教材費、住宿費、週一至五每日三餐</td>
+      <td class="amt">55,000</td>
+      <td class="desc" style="font-size:12px;"></td>
+    </tr>
+    <tr>
+      <td class="item">機票費</td>
+      <td class="desc">高雄→馬尼拉（6/27）<br>馬尼拉→薄荷島（6/29）<br>宿霧→桃園（7/11）</td>
+      <td class="amt">16,500</td>
+      <td class="desc" style="font-size:12px;">&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="item">保險費</td>
+      <td class="desc">建議再加保個人旅平險與海外醫療<br>（推薦專業的沛沛媽咪）</td>
+      <td class="amt" style="color:#999;">—</td>
+      <td class="desc" style="font-size:12px;color:#999;">建議項目</td>
+    </tr>
+    <tr>
+      <td class="item">零用金建議</td>
+      <td class="desc">400 ~ 600 美金（依個人花費而定）</td>
+      <td class="amt" style="color:#999;">另計</td>
+      <td class="desc" style="font-size:12px;color:#999;">建議項目</td>
+    </tr>
+    <tr class="total-row">
+      <td class="item" colspan="2" style="text-align:right;">合計</td>
+      <td class="amt">71,500</td>
+      <td class="desc" style="font-size:12px;">&nbsp;</td>
+    </tr>
+  </table>
+
+  <div class="section">
+    <h3>&#10003; 費用包含</h3>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr><td style="padding:4px 8px;">1. 學費、教材費</td></tr>
+      <tr><td style="padding:4px 8px;">2. 住宿費（88th Avenue, Cebu）</td></tr>
+      <tr><td style="padding:4px 8px;">3. 週一至五每日三餐</td></tr>
+      <tr><td style="padding:4px 8px;">4. 洗衣費、房間清潔費（一週一次）</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h3>&#10007; 費用不包含</h3>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr><td style="padding:4px 8px;">1. 個人零用金（建議 400~600 美金）</td></tr>
+      <tr><td style="padding:4px 8px;">2. 六／日戶外旅遊費用</td></tr>
+      <tr><td style="padding:4px 8px;">3. 個人旅平險（建議自行加保）</td></tr>
+      <tr><td style="padding:4px 8px;">4. 6/27 ~ 7/1 間，馬尼拉 — 薄荷島之吃、行、育樂</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h3>&#128205; 6/27 ~ 7/1 行程評估 & 住宿費用</h3>
+    <table class="itinerary-table">
+      <tr>
+        <th style="width:12%;">日期</th>
+        <th style="width:30%;">行程內容</th>
+        <th style="width:28%;">住宿</th>
+        <th style="width:30%;">住宿費用說明</th>
+      </tr>
+      <tr>
+        <td class="date-cell">6/27（六）<br>+<br>6/28（日）</td>
+        <td>高雄 18:25 → 馬尼拉 20:15（Z2 133）<br><br>馬尼拉市區自由活動</td>
+        <td style="font-weight:bold;">Microtel by Wyndham Mall of Asia</td>
+        <td class="room-detail">
+          （二晚合計）<b>不含</b>早餐<br>
+          2人一間 2,200 &times; 2 = 4,400（MU家）<br>
+          3人一間 3,060 &times; 2 = 6,120（ALICE家／奕安家／沛沛家／皓宸家）<br>
+          4人一間 3,800 &times; 2 = 7,600（晴家／鹿鹿家／家長未跟學員）
+        </td>
+      </tr>
+      <tr>
+        <td class="date-cell">6/29（一）</td>
+        <td>馬尼拉 14:10 → 薄荷島 15:30（Z2 358）</td>
+        <td style="font-weight:bold;">Be Grand Resort Bohol</td>
+        <td class="room-detail">
+          （二晚合計）每房<b>含早餐2客</b><br>
+          2人一間 3,600 &times; 2 = 7,200（MU家）<br>
+          3人一間 4,050 &times; 2 = 8,100（ALICE家／奕安家／沛沛家／皓宸家）<br>
+          4人一間 4,600 &times; 2 = 9,200（晴家／鹿鹿家／家長未跟學員）
+        </td>
+      </tr>
+      <tr>
+        <td class="date-cell">6/30（二）</td>
+        <td>薄荷島自由活動（巧克力山、眼鏡猴等）</td>
+        <td>（同上，續住第二晚）</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td class="date-cell">7/1（三）</td>
+        <td>前往宿霧，開始語言學習課程</td>
+        <td>88th Avenue（含學費內）</td>
+        <td>含在學費內</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section">
+    <h3>&#128179; 本家庭前期住宿費用（6/27 ~ 7/1）</h3>
+    <table class="itinerary-table">
+      <tr>
+        <th style="width:25%;">住宿</th>
+        <th style="width:25%;">配置</th>
+        <th style="width:25%;">費用</th>
+        <th style="width:25%;">備註</th>
+      </tr>
+      <tr>
+        <td style="font-weight:bold;">Microtel by Wyndham<br>Mall of Asia（二晚）</td>
+        <td>二人一間（父母陪同）</td>
+        <td style="text-align:right;font-weight:bold;">NT$ 4,400</td>
+        <td>（二晚合計）不含早餐</td>
+      </tr>
+      <tr>
+        <td style="font-weight:bold;">Be Grand Resort Bohol（二晚）</td>
+        <td>二人一間（父母陪同）</td>
+        <td style="text-align:right;font-weight:bold;">NT$ 7,200</td>
+        <td>（二晚合計）每房含早餐2客</td>
+      </tr>
+      <tr style="background:#fff3cd;font-weight:bold;">
+        <td colspan="2" style="text-align:right;">前段住宿合計</td>
+        <td style="text-align:right;">NT$ 11,600</td>
+        <td>二人房家庭費用</td>
+      </tr>
+    </table>
+  </div>
+
+  <h3>&#127976; 飯店介紹</h3>
+    <table class="itinerary-table">
+      <tr>
+        <th style="width:22%;">飯店</th>
+        <th style="width:48%;">簡介</th>
+        <th style="width:30%;">備註</th>
+      </tr>
+      <tr>
+        <td style="font-weight:bold;">Microtel by Wyndham Mall of Asia</td>
+        <td>位於馬尼拉灣區，與 SM Mall of Asia 相連，購物餐飲便利。提供標準客房，附早餐、免費 WiFi。</td>
+        <td>6/27~6/28 入住二晚</td>
+      </tr>
+      <tr>
+        <td style="font-weight:bold;">Be Grand Resort Bohol</td>
+        <td>位於薄荷島邦勞（Panglao），渡假村風格，設有泳池、餐廳，鄰近阿羅娜海灘（Alona Beach）。</td>
+        <td>6/29~6/30 入住二晚</td>
+      </tr>
+      <tr>
+        <td style="font-weight:bold;">88th Avenue, Cebu</td>
+        <td>位於宿霧市中心，飯店式管理公寓，鄰近語言學校，含基本家具家電及廚房設備。</td>
+        <td>7/1~7/11 語言學習期間，含在學費內</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h3>&#128176; 其他費用預估（馬尼拉、薄荷島）<span style="font-size:12px;color:#888;font-weight:normal;"> 不含餐 // 平均分攤</span></h3>
+    <table class="itinerary-table">
+      <tr>
+        <th style="width:30%;">項目</th>
+        <th style="width:35%;">說明</th>
+        <th style="width:35%;">金額（台幣）</th>
+      </tr>
+      <tr style="background:#d4edda;font-weight:bold;"><td colspan="3" style="padding:6px 8px;border:1px solid #999;">馬尼拉</td></tr>
+      <tr><td style="border:1px solid #999;padding:6px 8px;">機場接送</td><td style="border:1px solid #999;padding:6px 8px;">馬尼拉機場→飯店（8~10人/車）</td><td style="border:1px solid #999;padding:6px 8px;">1,000/車</td></tr>
+      <tr><td style="border:1px solid #999;padding:6px 8px;">市區旅行1天</td><td style="border:1px solid #999;padding:6px 8px;">Makati馬卡蒂-馬尼拉商貿中心（8~10人/車）</td><td style="border:1px solid #999;padding:6px 8px;">3,000/車</td></tr>
+      <tr><td style="border:1px solid #999;padding:6px 8px;">馬尼拉灣日落+Bambike Intramuros tour</td><td style="border:1px solid #999;padding:6px 8px;">王城竹製腳踏車導覧（2小時）</td><td style="border:1px solid #999;padding:6px 8px;">400/人</td></tr>
+      <tr style="background:#d4edda;font-weight:bold;"><td colspan="3" style="padding:6px 8px;border:1px solid #999;">薄荷島 6/29</td></tr>
+      <tr><td style="border:1px solid #999;padding:6px 8px;">機場接送（來）</td><td style="border:1px solid #999;padding:6px 8px;">薄荷島機場→飯店（5-6人/車）</td><td style="border:1px solid #999;padding:6px 8px;">1,000/車</td></tr>
+      <tr><td style="border:1px solid #999;padding:6px 8px;">碼頭接送（回）</td><td style="border:1px solid #999;padding:6px 8px;">飯店→碼頭（5-6人/車）</td><td style="border:1px solid #999;padding:6px 8px;">1,000/車</td></tr>
+      <tr><td style="border:1px solid #999;padding:6px 8px;">包車1天</td><td style="border:1px solid #999;padding:6px 8px;">10人座包車遊覽</td><td style="border:1px solid #999;padding:6px 8px;">6,000/車</td></tr>
+      <tr><td style="border:1px solid #999;padding:6px 8px;">巧克力山 Chocolate Hills</td><td style="border:1px solid #999;padding:6px 8px;">門票</td><td style="border:1px solid #999;padding:6px 8px;">50/人</td></tr>
+      <tr><td style="border:1px solid #999;padding:6px 8px;">越野沙灘車 ATV Ride</td><td style="border:1px solid #999;padding:6px 8px;">體驗活動</td><td style="border:1px solid #999;padding:6px 8px;">700/人</td></tr>
+      <tr><td style="border:1px solid #999;padding:6px 8px;">羅伯克河遊船+午餐 Loboc River Cruise</td><td style="border:1px solid #999;padding:6px 8px;">遊船含午餐</td><td style="border:1px solid #999;padding:6px 8px;">500/人</td></tr>
+      <tr><td style="border:1px solid #999;padding:6px 8px;">眼鏡猴</td><td style="border:1px solid #999;padding:6px 8px;">門票</td><td style="border:1px solid #999;padding:6px 8px;">100/人</td></tr>
+      <tr><td style="border:1px solid #999;padding:6px 8px;">空中滑索 Zipline</td><td style="border:1px solid #999;padding:6px 8px;">體驗活動</td><td style="border:1px solid #999;padding:6px 8px;">250/人</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h3>&#128221; 備註事項</h3>
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <tr><td style="padding:4px 8px;">學習期間，鹿鹿老師和駐點外師將 24 小時在校照顧學生，並安排每日晚間課後小活動，沉浸式英語學習。</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h3>&#128176; 費用總計</h3>
+    <table class="fee">
+      <tr><th style="width:40%;">項目</th><th style="width:30%;">說明</th><th style="width:30%;">金額（NT$）</th></tr>
+      <tr>
+        <td class="item">學費／教材費／住宿費／三餐</td>
+        <td class="desc">宿霧學習期間 7/1~7/11</td>
+        <td class="amt">55,000</td>
+      </tr>
+      <tr>
+        <td class="item">機票費</td>
+        <td class="desc">高雄→馬尼拉→薄荷島→宿霧→桃園</td>
+        <td class="amt">16,500</td>
+      </tr>
+      <tr>
+        <td class="item">前段住宿費（6/27~7/1）</td>
+        <td class="desc">馬尼拉Microtel二晚＋薄荷島Be Grand二晚</td>
+        <td class="amt" id="room-total">11,600</td>
+      </tr>
+      <tr class="total-row">
+        <td class="item" colspan="2" style="text-align:right;">應付總額</td>
+        <td class="amt" id="grand-total">83,100</td>
+      </tr>
+    </table>
+  <p style="font-size:13px;color:#856404;margin:8px 0 0;text-align:right;">&#9888; 家長段的明細部分擇日補發</p>
+  </div>
+
+  <div class="bank-info">
+    <h3>&#128179; 匯款資訊</h3>
+    <p><strong>銀行：</strong>國泰世華銀行（013）</p>
+    <p><strong>帳號：</strong>699-516-764-868</p>
+    <p><strong>戶名：</strong>陸卉柔</p>
+    <p style="color:#856404; font-size:13px;">&#9888; 匯款後請來訊告知帳號後五碼，以便對帳</p>
+  </div>
+
+  <div class="sign-row">
+    <div>家長簽名：<span></span></div>
+    <div>日期：<span></span></div>
+  </div>
+
+  <div class="footer">鹿鹿fun學 &bull; 製作日期：2026 年 6 月</div>
+</div>
+</body>
+</html>
