@@ -72,6 +72,30 @@
   .itinerary-table th { background: #e8f4fd; font-weight: bold; border: 1px solid #999; padding: 6px 8px; text-align: center; }
   .itinerary-table td { border: 1px solid #999; padding: 6px 8px; vertical-align: top; }
   .itinerary-table .date-cell { text-align: center; white-space: nowrap; }
+
+  @media (max-width: 600px) {
+    body { padding: 8px; margin: 0; }
+    .container { padding: 12px; border-radius: 8px; }
+    h1 { font-size: 18px; padding-bottom: 10px; }
+    .subtitle { font-size: 12px; margin-bottom: 15px; }
+    .info-grid { grid-template-columns: 1fr; gap: 4px; }
+    .info-item { font-size: 13px; }
+    .info-label { min-width: 60px; }
+    .flight-section { padding: 10px 12px; }
+    .flight-section h3 { font-size: 14px; }
+    table.fee, .flight-table, .itinerary-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table.fee th { font-size: 12px; padding: 8px 4px; }
+    table.fee td { font-size: 12px; padding: 6px 4px; }
+    .flight-table th, .flight-table td { font-size: 11px; padding: 4px; }
+    .itinerary-table th, .itinerary-table td { font-size: 11px; padding: 4px; }
+    .room-detail { font-size: 11px; }
+    .section h3 { font-size: 14px; }
+    .bank-info { padding: 10px; }
+    .bank-info p { font-size: 12px; }
+    .bank-info h3 { font-size: 13px; }
+    .footer { font-size: 10px; margin-top: 15px; }
+    .blank-field { min-width: 80px; }
+  }
 </style>
 </head>
 <body>
