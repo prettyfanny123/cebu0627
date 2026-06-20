@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>行李整理清單</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+    background: #f0f2f5;
+    padding: 20px;
+  }
+  .page {
+    max-width: 800px; margin: 0 auto;
+    background: #fff; border-radius: 12px;
+    padding: 30px 40px; box-shadow: 0 2px 12px rgba(0,0,0,.1);
+  }
+  h1 {
+    text-align: center; color: #0070C0; font-size: 24px;
+    border-bottom: 3px solid #0070C0; padding-bottom: 12px; margin-bottom: 20px;
+  }
+  .sub { text-align: center; color: #888; font-size: 13px; margin-bottom: 24px; }
+  .category {
+    margin-bottom: 18px; page-break-inside: avoid; break-inside: avoid;
+  }
+  .category h2 {
+    font-size: 15px; color: #0070C0;
+    border-left: 4px solid #0070C0; padding-left: 10px; margin-bottom: 8px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .items { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 20px; }
+  .item {
+    display: flex; align-items: flex-start; gap: 8px;
+    padding: 5px 0; border-bottom: 1px dashed #eee;
+    font-size: 13px; line-height: 1.5;
+  }
+  .item .ckb {
+    width: 16px; height: 16px; border: 2px solid #0070C0;
+    border-radius: 3px; flex-shrink: 0; margin-top: 2px;
+  }
+  .item .note { color: #999; font-size: 11px; }
+  .item .tag {
+    display: inline-block; background: #ffb74d; color: #000;
+    font-size: 10px; padding: 0 6px; border-radius: 3px; font-weight: 600;
+  }
+  .item .tag.blue { background: #4fc3f7; }
+  .item .tag.green { background: #81c784; }
+  @media print {
+    body { background: none; padding: 0; }
+    .page { box-shadow: none; padding: 20px 30px; }
+    .item { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <h1>🧳 行李整理清單</h1>
+  <p class="sub">IT Park 宿霧遊學 ｜ 2026 年 6 月 27 日 ~ 7 月 11 日</p>
+
+  <div class="category">
+    <h2>🪪 證件與文件</h2>
+    <div class="items">
+      <div class="item"><span class="ckb"></span>護照正本（效期 6 月以上）</div>
+      <div class="item"><span class="ckb"></span>護照影本（自備）</div>
+      <div class="item"><span class="ckb"></span>簽證 <span class="tag green">14 天內免簽</span></div>
+      <div class="item"><span class="ckb"></span>回程機票電子證明（鹿鹿備）</div>
+      <div class="item"><span class="ckb"></span>WEG 文件（家長未跟學員）</div>
+      <div class="item"><span class="ckb"></span>住宿資訊小卡（鹿鹿備）</div>
+    </div>
+  </div>
+
+  <div class="category">
+    <h2>👕 衣物</h2>
+    <div class="items">
+      <div class="item"><span class="ckb"></span>夏季上衣 5~6 套 <span class="note">快乾材質佳</span></div>
+      <div class="item"><span class="ckb"></span>保暖外套 <span class="tag blue">Ocean Jet 冷氣超~~強</span></div>
+      <div class="item"><span class="ckb"></span>泳衣／海灘褲</div>
+      <div class="item"><span class="ckb"></span>涼鞋／拖鞋</div>
+      <div class="item"><span class="ckb"></span>舊球鞋 <span class="note">雨季備用</span></div>
+      <div class="item"><span class="ckb"></span>遮陽帽／墨鏡</div>
+    </div>
+  </div>
+
+  <div class="category">
+    <h2>🧴 盥洗與防護</h2>
+    <div class="items">
+      <div class="item"><span class="ckb"></span>防曬乳 SPF50+</div>
+      <div class="item"><span class="ckb"></span>防蚊液（前四天旅行用，100ml 內，可放隨身行李）</div>
+      <div class="item"><span class="ckb"></span>牙刷／牙膏</div>
+      <div class="item"><span class="ckb"></span>個人盥洗用品（洗面乳、沐浴乳、洗髮精等）</div>
+      <div class="item"><span class="ckb"></span>個人護膚保養品</div>
+      <div class="item"><span class="ckb"></span>隱形眼鏡＋藥水</div>
+      <div class="item"><span class="ckb"></span>衛生棉／生理用品</div>
+      <div class="item"><span class="ckb"></span>抽取式衛生紙／濕紙巾</div>
+      <div class="item"><span class="ckb"></span>口罩、乾洗手或酒精</div>
+    </div>
+  </div>
+
+  <div class="category">
+    <h2>💊 藥品（至少 5 天份）</h2>
+    <div class="items">
+      <div class="item"><span class="ckb"></span>綜合感冒藥（流鼻水／發燒／喉嚨痛／咳嗽）</div>
+      <div class="item"><span class="ckb"></span>腸胃藥（胃痛／拉肚子）</div>
+      <div class="item"><span class="ckb"></span>止痛藥／消炎藥</div>
+      <div class="item"><span class="ckb"></span>過敏藥</div>
+      <div class="item"><span class="ckb"></span>蚊蟲藥膏</div>
+      <div class="item"><span class="ckb"></span>暈車藥 <span class="tag">船程備用</span></div>
+    </div>
+  </div>
+
+  <div class="category">
+    <h2>📱 3C 與電器</h2>
+    <div class="items">
+      <div class="item"><span class="ckb"></span>手機＋充電線</div>
+      <div class="item"><span class="ckb"></span>行動電源 <span class="tag blue">放隨身行李</span></div>
+      <div class="item"><span class="ckb"></span>平板／筆電（選帶）</div>
+    </div>
+  </div>
+
+  <div class="category">
+    <h2>📖 學習用品</h2>
+    <div class="items">
+      <div class="item"><span class="ckb"></span>筆記本／筆／便條紙等文具</div>
+      <div class="item"><span class="ckb"></span>書本：機上或零散時間消遣</div>
+    </div>
+  </div>
+
+  <div class="category">
+    <h2>🍜 食物</h2>
+    <div class="items">
+      <div class="item"><span class="ckb"></span>少量愛吃零食泡麵 <span class="tag green">不可含豬肉</span></div>
+      <div class="item"><span class="ckb"></span>乾糧／餅乾</div>
+    </div>
+  </div>
+
+  <div class="category">
+    <h2>🧹 其他生活小物</h2>
+    <div class="items">
+      <div class="item"><span class="ckb"></span>指甲剪、梳子、小鏡子</div>
+      <div class="item"><span class="ckb"></span>棉花棒、護髮油</div>
+      <div class="item"><span class="ckb"></span>雨衣、鞋套（鹿鹿備）</div>
+      <div class="item"><span class="ckb"></span>🎁 小小台灣紀念品（友誼搭建，沒有硬性規定）</div>
+      <div class="item"><span class="ckb"></span>防水袋</div>
+    </div>
+  </div>
+
+  <div class="category">
+    <h2>🎯 最後確認</h2>
+    <div class="items">
+      <div class="item"><span class="ckb"></span>Grab App 已裝好＋綁信用卡</div>
+      <div class="item"><span class="ckb"></span>eSIM／漫遊已開通</div>
+      <div class="item"><span class="ckb"></span>100ml 液體裝夾鏈袋</div>
+      <div class="item"><span class="ckb"></span>E-travel 線上填寫＋截圖存手機</div>
+    </div>
+  </div>
+
+  <p style="text-align:center;margin-top:24px;font-size:11px;color:#aaa;border-top:1px solid #eee;padding-top:12px;">
+    ✅ 勾選後即可打包 ｜ Well prepared · Enjoy the atmosphere · Fun learning
+  </p>
+</div>
+</body>
+</html>

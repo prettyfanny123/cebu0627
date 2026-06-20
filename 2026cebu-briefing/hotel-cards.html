@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>宿遊飯店小卡（名片大小・可列印）</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+    background: #eee;
+    padding: 10mm;
+  }
+  @page {
+    size: A4;
+    margin: 10mm;
+  }
+  .print-area {
+    max-width: 190mm;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 90mm);
+    gap: 6mm;
+    justify-content: center;
+  }
+  .card {
+    width: 90mm;
+    height: 54mm;
+    background: #fff;
+    border-radius: 4mm;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+    padding: 4mm 5mm;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5mm;
+    border-radius: 4mm 4mm 0 0;
+  }
+  .card.microtel::before { background: #2c6e49; }
+  .card.grand::before { background: #e8643a; }
+  .card.avenue::before { background: #4fc3f7; }
+  .card .tag {
+    display: inline-block;
+    font-size: 9pt;
+    color: #fff;
+    padding: 1px 8px;
+    border-radius: 3px;
+    align-self: flex-start;
+    margin-top: -1mm;
+    margin-bottom: 2mm;
+  }
+  .card.microtel .tag { background: #2c6e49; }
+  .card.grand .tag { background: #e8643a; }
+  .card.avenue .tag { background: #4fc3f7; }
+  .card h2 {
+    font-size: 14pt;
+    font-weight: 700;
+    margin-bottom: 1mm;
+    line-height: 1.3;
+  }
+  .card .addr {
+    font-size: 9pt;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: auto;
+  }
+  .card .note {
+    font-size: 9pt;
+    color: #888;
+    border-top: 1px dashed #ddd;
+    padding-top: 1.5mm;
+    margin-top: auto;
+  }
+  .card .lang {
+    font-size: 8pt;
+    color: #999;
+    font-style: italic;
+  }
+  @media print {
+    body { background: none; padding: 0; }
+    .print-area { max-width: 100%; }
+    .card { box-shadow: none; border: 1px solid #ccc; border-radius: 0; }
+    .card::before { border-radius: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="print-area">
+
+  <!-- Microtel by Wyndham Mall of Asia -->
+  <div class="card microtel" onclick="window.open('https://www.google.com/maps/search/Microtel+by+Wyndham+Mall+of+Asia+Pasay+Philippines','_blank')">
+    <div class="tag">馬尼拉 Manila</div>
+    <h2>Microtel by Wyndham<br>Mall of Asia</h2>
+    <div class="addr">
+      Unit 1, 2nd Floor, Main Mall, SM Mall of Asia,<br>
+      Pasay City, 1300 Metro Manila, Philippines
+    </div>
+    <div class="note">
+      📅 6/27（六）～ 6/29（一）二晚<br>
+      🅿️ 近 SM Mall of Asia，機場接駁方便
+    </div>
+    <div class="lang"> </div>
+  </div>
+
+  <div class="card microtel" onclick="window.open('https://www.google.com/maps/search/Microtel+by+Wyndham+Mall+of+Asia+Pasay+Philippines','_blank')">
+    <div class="tag">馬尼拉 Manila</div>
+    <h2>Microtel by Wyndham<br>Mall of Asia</h2>
+    <div class="addr">
+      Unit 1, 2nd Floor, Main Mall, SM Mall of Asia,<br>
+      Pasay City, 1300 Metro Manila, Philippines
+    </div>
+    <div class="note">
+      📅 6/29（一）～ 7/1（三）薄荷島<br>
+      (下一站：Be Grand Resort Bohol)
+    </div>
+    <div class="lang"> </div>
+  </div>
+
+  <!-- Be Grand Resort Bohol -->
+  <div class="card grand" onclick="window.open('https://www.google.com/maps/search/Be+Grand+Resort+Bohol+Panglao+Philippines','_blank')">
+    <div class="tag">薄荷島 Bohol</div>
+    <h2>Be Grand Resort Bohol</h2>
+    <div class="addr">
+      Brgy. Tawala, Panglao Island,<br>
+      Bohol 6340, Philippines
+    </div>
+    <div class="note">
+      📅 6/29（一）～ 7/1（三）二晚<br>
+      🏖️ 近 Alona Beach，含早餐 2 客
+    </div>
+    <div class="lang"> </div>
+  </div>
+
+  <div class="card grand" onclick="window.open('https://www.google.com/maps/search/Be+Grand+Resort+Bohol+Panglao+Philippines','_blank')">
+    <div class="tag">薄荷島 Bohol</div>
+    <h2>Be Grand Resort Bohol</h2>
+    <div class="addr">
+      Brgy. Tawala, Panglao Island,<br>
+      Bohol 6340, Philippines
+    </div>
+    <div class="note">
+      📅 7/1（三）前往宿霧<br>
+      (下一站：88th Avenue, Cebu)
+    </div>
+    <div class="lang"> </div>
+  </div>
+
+  <!-- 88th Avenue, Cebu -->
+  <div class="card avenue" onclick="window.open('https://www.google.com/maps/search/88th+Avenue+Gov+M+Cuenco+Ave+Cebu+City+Philippines','_blank')">
+    <div class="tag">宿霧 Cebu</div>
+    <h2>88th Avenue</h2>
+    <div class="addr">
+      Gov. M. Cuenco Ave., Cebu City,<br>
+      6000 Cebu, Philippines
+    </div>
+    <div class="note">
+      📅 7/1（三）～ 7/11（六）語言學習期間<br>
+      📚 學員含平日三餐，步行可到學校
+    </div>
+    <div class="lang"> </div>
+  </div>
+
+  <div class="card avenue" onclick="window.open('https://www.google.com/maps/search/88th+Avenue+Gov+M+Cuenco+Ave+Cebu+City+Philippines','_blank')">
+    <div class="tag">宿霧 Cebu</div>
+    <h2>88th Avenue</h2>
+    <div class="addr">
+      Gov. M. Cuenco Ave., Cebu City,<br>
+      6000 Cebu, Philippines
+    </div>
+    <div class="note">
+      📅 7/11（六）回國<br>
+      (從宿霧搭機返回台灣)
+    </div>
+    <div class="lang"> </div>
+  </div>
+
+</div>
+
+<div style="text-align:center;margin-top:8mm;font-size:9pt;color:#999;">
+  ✂️ 沿虛線裁切即可獲得名片大小飯店小卡 ・ 雙面列印建議僅印單面即可
+</div>
+</body>
+</html>
