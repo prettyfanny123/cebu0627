@@ -86,6 +86,29 @@
     .two-col .col ul { list-style: none; padding: 0; margin: 0; }
     .two-col .col ul li { padding: 4px 0; color: #ccc; line-height: 1.6; }
     .two-col .col ul li::before { content: "▸ "; color: var(--accent); }
+    .stat-row { display: flex; }
+    .stat-card {
+      background: rgba(255,255,255,0.05); border-radius: 8px;
+      text-align: center; border-top: 3px solid var(--accent2);
+    }
+    @media screen and (max-width: 768px) {
+      .adv-grid { grid-template-columns: 1fr; gap: 10px; margin-top: 0.3em; }
+      .two-col { grid-template-columns: 1fr; gap: 10px; margin-top: 0.2em; }
+      .two-col .col { font-size: 0.6em; }
+      .grid-3col { grid-template-columns: 1fr !important; font-size: 0.55em !important; }
+      .info-row { flex-direction: column !important; }
+      .reveal h1 { font-size: 1.6em; }
+      .reveal h2 { font-size: 1.1em; }
+      .checklist li { font-size: 0.6em; }
+      .dialog-box { font-size: 0.55em; padding: 10px 14px; }
+      .tip-box { font-size: 0.55em; }
+      .adv-card .adv-title { font-size: 0.65em; }
+      .adv-card .adv-desc { font-size: 0.55em; }
+      .stat-row { flex-wrap: wrap; gap: 6px; }
+      .stat-card { flex: 1 1 45%; }
+      .title-slide .subtitle { font-size: 0.55em; }
+      .title-slide .author { font-size: 0.4em; }
+    }
   </style>
 </head>
 <body>
@@ -151,7 +174,7 @@
     <!-- Slide 4: 行李準備 -->
     <section class="bg-soft">
       <h2>🧳 行李準備建議</h2>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:0.3em;font-size:0.38em;">
+      <div class="grid-3col" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:0.3em;font-size:0.38em;">
         <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:8px 10px;">
           <strong style="color:var(--accent2);">🪪 證件</strong>
           <div style="color:#ccc;line-height:1.7;">☐ 護照正本／影本（自備）<br>☐ 簽證（14天內免簽）<br>☐ 回程機票電子證明（鹿鹿備）<br>☐ WEG 文件（家長未跟學員）<br>☐ 住宿資訊小卡（鹿鹿備）</div>
@@ -209,7 +232,7 @@
     <!-- Slide 6: 當地資訊 -->
     <section class="bg-soft">
       <h2 style="font-size:1.2em;">🏨 宿霧當地資訊</h2>
-      <div style="display:flex;gap:12px;margin-top:0.2em;font-size:0.4em;">
+      <div class="info-row" style="display:flex;gap:12px;margin-top:0.2em;font-size:0.4em;">
         <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:8px;padding:8px 12px;">
           <strong style="color:var(--accent2);">🌤 氣候</strong> 雨季 25~33°C，帶傘
           <span style="margin-left:12px;"><strong style="color:var(--accent2);">🕐 時差</strong> 無（GMT+8）</span>
@@ -218,7 +241,7 @@
           <strong style="color:var(--accent2);">📶 通訊</strong> eSIM 或漫遊（相關資訊已分享）
         </div>
       </div>
-      <div style="display:flex;gap:12px;margin-top:0.2em;font-size:0.4em;">
+      <div class="info-row" style="display:flex;gap:12px;margin-top:0.2em;font-size:0.4em;">
         <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:8px;padding:8px 12px;">
           <strong style="color:var(--accent2);">🏠 住宿</strong>
           馬尼拉 Microtel（三餐，行程自費）／ 薄荷島 Be Grand Resort（每房含早餐二客）／ 宿霧 88th Avenue（學員和隨行家人含平日三餐）
@@ -415,7 +438,9 @@
   Reveal.initialize({
     hash: true, transition: 'slide', transitionSpeed: 'default',
     backgroundTransition: 'fade', center: true, progress: true,
-    controls: true, slideNumber: 'c/t', plugins: []
+    controls: true, slideNumber: 'c/t', plugins: [],
+    width: window.innerWidth < 480 ? 380 : 960,
+    height: 700
   });
   document.querySelectorAll('.slides a').forEach(function(a) {
     a.addEventListener('click', function(e) { e.stopPropagation(); });
