@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IT Park Banner</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    display: flex; justify-content: center; align-items: center;
+    min-height: 100vh; background: #eee;
+  }
+  .banner {
+    width: 160mm; height: 70mm;
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    font-family: 'Segoe UI', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  }
+  .banner::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(160deg, #fff8e1 0%, #fff9c4 20%, #fef9e7 50%, #e8f4f8 80%, #fff 100%);
+    z-index: 0;
+  }
+  .sun {
+    position: absolute; top: -3mm; right: -3mm;
+    width: 22mm; height: 22mm;
+    z-index: 1; opacity: 0.4;
+  }
+  .sun-core {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    width: 10mm; height: 10mm;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,249,196,0.5) 0%, rgba(253,216,53,0.25) 60%, transparent 100%);
+  }
+  .sun-ray {
+    position: absolute; top: 50%; left: 50%;
+    width: 1mm; height: 6mm;
+    background: linear-gradient(180deg, rgba(253,216,53,0.2), transparent);
+    transform-origin: center 1mm;
+  }
+  .sun-ray:nth-child(1) { transform: translate(-50%,-50%) rotate(0deg) translateY(-8mm); }
+  .sun-ray:nth-child(2) { transform: translate(-50%,-50%) rotate(30deg) translateY(-8mm); }
+  .sun-ray:nth-child(3) { transform: translate(-50%,-50%) rotate(60deg) translateY(-8mm); }
+  .sun-ray:nth-child(4) { transform: translate(-50%,-50%) rotate(90deg) translateY(-8mm); }
+  .sun-ray:nth-child(5) { transform: translate(-50%,-50%) rotate(120deg) translateY(-8mm); }
+  .sun-ray:nth-child(6) { transform: translate(-50%,-50%) rotate(150deg) translateY(-8mm); }
+  .sun-ray:nth-child(7) { transform: translate(-50%,-50%) rotate(180deg) translateY(-8mm); }
+  .sun-ray:nth-child(8) { transform: translate(-50%,-50%) rotate(210deg) translateY(-8mm); }
+  .sun-ray:nth-child(9) { transform: translate(-50%,-50%) rotate(240deg) translateY(-8mm); }
+  .sun-ray:nth-child(10) { transform: translate(-50%,-50%) rotate(270deg) translateY(-8mm); }
+  .sun-ray:nth-child(11) { transform: translate(-50%,-50%) rotate(300deg) translateY(-8mm); }
+  .sun-ray:nth-child(12) { transform: translate(-50%,-50%) rotate(330deg) translateY(-8mm); }
+  .sparkle {
+    position: absolute; border-radius: 50%;
+    background: rgba(253,216,53,0.12); z-index: 1;
+    filter: blur(0.8mm);
+  }
+  .sparkle:nth-child(3) { width: 4mm; height: 4mm; top: 12mm; left: 25mm; }
+  .sparkle:nth-child(4) { width: 2.5mm; height: 2.5mm; top: 20mm; right: 40mm; }
+  .sparkle:nth-child(5) { width: 3mm; height: 3mm; bottom: 28mm; left: 30mm; background: rgba(66,165,245,0.08); }
+  .sparkle:nth-child(6) { width: 5mm; height: 5mm; bottom: 30mm; right: 28mm; background: rgba(253,216,53,0.1); }
+  .accent-line {
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 2mm;
+    background: linear-gradient(90deg, #fdd835, #fb8c00, #fdd835, #42a5f5, #1565c0);
+    z-index: 5;
+  }
+  .content {
+    position: relative; z-index: 5; text-align: center;
+    margin-bottom: 4mm;
+  }
+  .main-title {
+    font-size: 26pt; font-weight: 900;
+    color: #0d47a1; letter-spacing: 3px;
+    text-shadow: 0 1.5mm 8mm rgba(13,71,161,0.12);
+    line-height: 1.15;
+  }
+  .main-title span { color: #f9a825; }
+  .sub-title {
+    font-size: 12pt; font-weight: 700;
+    color: #555; letter-spacing: 4px; margin-top: 2mm;
+  }
+  .sub-title .flag { display: inline-block; width: 1.5em; height: 1em; vertical-align: middle; margin-right: 1px; border-radius: 1px; }
+  .sub-title .tw2 { color: #7b1fa2; font-weight: 700; }
+  .sub-title strong { font-weight: 700; color: #d32f2f; }
+  .sub-title em { font-style: normal; color: #e53935; font-weight: 700; }
+  .sub-title b { font-weight: 700; color: #f9a825; }
+  .sub-title i { font-style: normal; color: #1e88e5; font-weight: 700; }
+  .sub-title u { text-decoration: none; color: #43a047; font-weight: 700; }
+  .sub-title span { color: #999; font-weight: 300; }
+  .footer {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 18mm; z-index: 3;
+  }
+  .footer::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(0deg, rgba(255,248,225,0.25) 0%, transparent 50%);
+    z-index: 4; pointer-events: none;
+  }
+  .wave { position: absolute; bottom: 0; left: 0; right: 0; }
+  .wave svg { display: block; width: 100%; height: auto; }
+  .wave-yellow { z-index: 1; }
+  .wave-yellow svg { height: 18mm; }
+  .wave-blue { z-index: 2; }
+  .wave-blue svg { height: 14mm; }
+  .wave-white { z-index: 3; }
+  .wave-white svg { height: 11mm; }
+  .footer-text {
+    position: absolute; z-index: 5;
+    bottom: 16mm; left: 0; right: 0;
+    text-align: center;
+    font-size: 9pt; font-weight: 800;
+    color: #1565c0; letter-spacing: 2px;
+  }
+  .footer-link {
+    position: absolute; z-index: 5;
+    bottom: 3mm; left: 0; right: 0;
+    text-align: center;
+    font-size: 5.5pt; color: #90caf9; letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+<div class="banner">
+  <div class="accent-line"></div>
+
+  <div class="sun">
+    <div class="sun-core"></div>
+    <div class="sun-ray"></div><div class="sun-ray"></div><div class="sun-ray"></div>
+    <div class="sun-ray"></div><div class="sun-ray"></div><div class="sun-ray"></div>
+    <div class="sun-ray"></div><div class="sun-ray"></div><div class="sun-ray"></div>
+    <div class="sun-ray"></div><div class="sun-ray"></div><div class="sun-ray"></div>
+  </div>
+
+  <div class="sparkle"></div>
+  <div class="sparkle"></div>
+  <div class="sparkle"></div>
+  <div class="sparkle"></div>
+
+  <div class="content">
+    <div class="main-title">Summer <span>Fun</span> Experience</div>
+    <div class="sub-title">
+      <svg class="flag" viewBox="0 0 30 20"><rect width="30" height="20" fill="#fe0000"/><rect width="12" height="12" fill="#002395"/><circle cx="6" cy="6" r="3.5" fill="#fff"/></svg><strong>Kaohsiung</strong><span>－</span>
+      <svg class="flag" viewBox="0 0 30 20"><rect width="30" height="20" fill="#0038a8"/><rect width="30" height="10" y="10" fill="#ce1126"/><polygon points="0,10 8,0 8,20" fill="#fff"/></svg><em>Manila</em><span>－</span>
+      <svg class="flag" viewBox="0 0 30 20"><rect width="30" height="20" fill="#0038a8"/><rect width="30" height="10" y="10" fill="#ce1126"/><polygon points="0,10 8,0 8,20" fill="#fff"/></svg><b>Bohol</b><span>－</span>
+      <svg class="flag" viewBox="0 0 30 20"><rect width="30" height="20" fill="#0038a8"/><rect width="30" height="10" y="10" fill="#ce1126"/><polygon points="0,10 8,0 8,20" fill="#fff"/></svg><u>Cebu</u><span>－</span>
+      <svg class="flag" viewBox="0 0 30 20"><rect width="30" height="20" fill="#fe0000"/><rect width="12" height="12" fill="#002395"/><circle cx="6" cy="6" r="3.5" fill="#fff"/></svg><span class="tw2">Taipei</span>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="wave wave-yellow">
+      <svg viewBox="0 0 720 40" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="gY" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#fff9c4"/>
+            <stop offset="100%" stop-color="#fdd835"/>
+          </linearGradient>
+        </defs>
+        <path d="M0,20 Q90,0 180,20 T360,20 T540,20 T720,20 V40 H0 Z" fill="url(#gY)"/>
+      </svg>
+    </div>
+    <div class="wave wave-blue">
+      <svg viewBox="0 0 720 30" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="gB" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#90caf9"/>
+            <stop offset="100%" stop-color="#42a5f5"/>
+          </linearGradient>
+        </defs>
+        <path d="M0,15 Q90,30 180,15 T360,15 T540,15 T720,15 V30 H0 Z" fill="url(#gB)"/>
+      </svg>
+    </div>
+    <div class="wave wave-white">
+      <svg viewBox="0 0 720 25" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="gW" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="rgba(255,255,255,0.85)"/>
+            <stop offset="100%" stop-color="rgba(255,255,255,0.3)"/>
+          </linearGradient>
+        </defs>
+        <path d="M0,12 Q90,25 180,12 T360,12 T540,12 T720,12 V25 H0 Z" fill="url(#gW)"/>
+      </svg>
+    </div>
+    <div class="footer-text">@LULU FUN</div>
+    <div class="footer-link">is.gd/R8zJ3m</div>
+  </div>
+</div>
+</body>
+</html>
